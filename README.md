@@ -1,4 +1,4 @@
-# Your startup name here
+Blossom Blueprint
 
 [My Notes](notes.md)
 
