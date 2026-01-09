@@ -32,7 +32,7 @@ This is a one stop tool for all florists that allows them to quickly and easily 
 ![Design image](bbpage1.jpeg)
 ![Design image](bbpage2.jpeg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The design of the website should be very user friendly and walk the florist through step by step in order to build an arrangment. They will then be able to cycle through the arragnment process building for how ever many arrangmnets the need for their client. Then, they can see a summary of total price and each individual floral recipe. 
 
 ```mermaid
 sequenceDiagram
