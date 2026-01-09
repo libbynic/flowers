@@ -2,7 +2,7 @@ Blossom Blueprint
 
 [My Notes](notes.md)
 
-The idea for Blossom Blueprint came from my sister in law who is a florist. She found herself wasting a lot of time organizing her floral recipes, searching wholesaler websites in order to find good prices, and trying to calculate order details. The purpose of this tool is to facilitate the organization of the design details for every florist. With this website, a florist will be able to plan out their designs, see prices, calculate cient markups and save time in during their design process.
+The idea for Blossom Blueprint came from my sister in law who is a florist. She found herself wasting a lot of time organizing her floral recipes, searching wholesaler websites in order to find good prices, and trying to calculate order details. The purpose of this tool is to facilitate the organization of the design details for every florist. With this website, a florist will be able to plan out their designs, see prices, calculate client markups and save time during their design process.
 
 > [!NOTE]
 > This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
