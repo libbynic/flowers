@@ -51,12 +51,12 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Build basic website structure for login and to welcome user
+- **CSS** - To style the website and make sure it looks professional. 
+- **React** - To write all of the functions so that the users can interact with the website
+- **Service** - Scrape wholesaler website to get prices and availability 
+- **DB/Login** - Store client's products in the database
+- **WebSocket** - Creative idea chat where you can ask other florists their opinion on arragements or other flower questions
 
 ## 🚀 AWS deliverable
 
