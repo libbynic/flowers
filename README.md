@@ -2,7 +2,7 @@ Blossom Blueprint
 
 [My Notes](notes.md)
 
-The idea for Blossom Blueprint came from my sister in law who is a florist. She found herself wasting a lot of time organizing her floral recipies, searching wholesaler websites in order to find good prices, and trying to calculate order details. The purpose of this tool is to facilitate the organization of the design details for every florist. With this website, a florist will be able to plan out their designs, see prices, calculate cient markups and save time in during their design process.
+The idea for Blossom Blueprint came from my sister in law who is a florist. She found herself wasting a lot of time organizing her floral recipes, searching wholesaler websites in order to find good prices, and trying to calculate order details. The purpose of this tool is to facilitate the organization of the design details for every florist. With this website, a florist will be able to plan out their designs, see prices, calculate cient markups and save time in during their design process.
 
 > [!NOTE]
 > This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
@@ -29,7 +29,7 @@ This is a one stop tool for all florists that allows them to quickly and easily 
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](bbpage1.jpeg)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
