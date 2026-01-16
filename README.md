@@ -34,12 +34,6 @@ This is a one stop tool for all florists that allows them to quickly and easily 
 
 The design of the website should be very user friendly and walk the florist through step by step in order to build an arrangment. They will then be able to cycle through the arragnment process building for how ever many arrangmnets the need for their client. Then, they can see a summary of total price and each individual floral recipe. 
 
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
 
 ### Key features
 
