@@ -16,11 +16,17 @@
         </header>
         <div>
         <h1>Start New Project!</h1>
+        <button>View Past Projects (Data base component)</button>
+        <br>
         <form action="formSubmit.html" method="post">
+            <li>
+                <label for="text">Project Name:</label>
+                <input type="text" id="text" name="varText" placeholder="Name Here"/>
+            </li>
             <li>
             <label for="Arrangement">What type of arrangement are you making? </label>
             <select id="Arrangement" name="Arrangement">
-                <option value="" disabled selected> Chose a design </option>
+                <option value="" disabled selected> Choose a design </option>
                 <option value="Bouquet">Bouquet</option>
                 <option value="Arch"> Arch </option>
                 <option value="Corsage"> Corsage </option> 
@@ -32,8 +38,16 @@
             <li>
             <label for="flower type"> What flowers will you need in this arrangement?</label>
             <select id="flower type" name="flower type">
-                <option value="flower">Flowers </option>
+                <option value="" disabled selected> Choose a flower type </option>
+                <option value="flower"> Sun Flowers </option>
+                <option value="flower"> Roses </option>
+                <option value="flower"> Daliah </option>
+                <option value="flower"> Chrysanthemums </option>
                 </select>
+            </li>
+            <li>
+                <label for="number">Number:</label>
+                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
             </li>
         </form>
     </body>
