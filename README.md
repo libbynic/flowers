@@ -56,21 +56,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://blossomblueprint.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I completed 4 HTML pages.
+- [x] **Proper HTML element usage** - I followed proper HTML element usage
+- [x] **Links** - I linked all of my HTML pages together.
+- [x] **Text** - I put text on each of the HTML pages. 
+- [x] **3rd party API placeholder** - I put a placeholder for an image generator on my about.html page.
+- [x] **Images** - I put an image on my about.html.page and projects.html page. And a video on my index.html page.
+- [x] **Login placeholder** - I put a login placeholder on my index.html page. 
+- [x] **DB data placeholder** - I put a database place holder on my projects.html page so a user can view past projects. 
+- [x] **WebSocket placeholder** - I put a websocket placeholder on my chat.html page.
 
 ## 🚀 CSS deliverable
 
