@@ -81,9 +81,15 @@
             width: 80vw;
             left: 10vw;
         }
+        h1{
+            text-align:center;
+            justify-content: center;
+            padding-top: 8vh;
+        
+        }
         h2 {
             display: flex;
-            text-align: right;
+            text-align: left;
             flex-direction:column
         }
         .welcome{
