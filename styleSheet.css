@@ -1,14 +1,10 @@
-.alumni-sans-pinstripe-regular {
-  font-family: "Alumni Sans Pinstripe", sans-serif;
-  font-weight: 400;
+.alumni-sans-sc {
+  font-family: "Alumni Sans SC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
-.alumni-sans-pinstripe-regular-italic {
-  font-family: "Alumni Sans Pinstripe", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
 .league-script-regular {
   font-family: "League Script", cursive;
   font-weight: 400;
@@ -22,11 +18,13 @@
         height: 50px;
         width: 150px;
         display: flex;
-        flex: 0, 0, 20%;
+        flex: 0 0 20%;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         text-align: center;
+        font-size: 30px
+
     
     }
     .btn-outline-success:hover {
