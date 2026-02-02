@@ -54,3 +54,23 @@
         justify-content: center;
         text-align: center;
     }
+    .center-img {
+        text-align: center;
+        justify-content: center;
+        display:flex;
+        flex-direction:row;
+    }
+    .box-text {
+        display: flex;
+        text-align: left;
+        border: 1px solid;
+        border-color: black;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 30px;
+    }
+    .foot {
+        display:flex;
+        flex-direction: column;
+        text-align:center;
+    }
