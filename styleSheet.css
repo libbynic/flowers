@@ -70,7 +70,26 @@
         margin: 30px;
     }
     .foot {
-        display:flex;
-        flex-direction: column;
-        text-align:center;
-    }
+        display: flex;
+        text-align: center;
+        flex-direction:column;
+           border-top: 1px solid;
+           border-color: black;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            position: absolute;
+            width: 80vw;
+            left: 10vw;
+        }
+        h2 {
+            display: flex;
+            text-align: right;
+            flex-direction:column
+        }
+        .welcome{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            font-size: 5vh;
+
+        }
