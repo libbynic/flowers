@@ -99,3 +99,13 @@
             font-size: 5vh;
 
         }
+        .chat-box {
+            display: flex;
+            text-align: left;
+            border: 1px solid;
+            border-color: black;
+            border-radius: 8px;
+            padding: 50px;
+            margin: 50px;
+
+        }
