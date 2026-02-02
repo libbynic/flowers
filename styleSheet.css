@@ -8,8 +8,11 @@
 .league-script-regular {
   font-family: "League Script", cursive;
   font-weight: 400;
-  font-style: normal;
+  font-style: regular;
+  font-size: 5vh;
 }
+body{
+    font-family: "Alumni Sans SC", sans-serif;
 
 .btn-outline-success {
         color: black;
@@ -23,14 +26,19 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        font-size: 30px
+        font-size: 30px;
 
-    
     }
+}
+
+    .btn-outline-success:active,
+    .btn-outline-success:focus,
+    .btn-outline-success:focus-visible,
     .btn-outline-success:hover {
         color: black;
-        background-color: #bac9d4;
-        border-color: #bac9d4;
+        background-color: #bac9d4 !important;
+        border-color: #bac9d4 !important;
+        box-shadow: none;
     }
     .navbar.my-nav-bar{
         background-color: #bac9d4;
@@ -83,6 +91,7 @@
         border-radius: 8px;
         padding: 20px;
         margin: 30px;
+        font-size: 30px;
     }
     .foot {
         display: flex;
@@ -95,6 +104,8 @@
             position: absolute;
             width: 80vw;
             left: 10vw;
+        font-family: "Alumni Sans SC", sans-serif ;
+        font-size: 25px
         }
         h1{
             text-align:center;
