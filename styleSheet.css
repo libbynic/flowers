@@ -9,10 +9,11 @@
   font-family: "League Script", cursive;
   font-weight: 400;
   font-style: regular;
-  font-size: 5vh;
+  font-size: 3rem;
 }
 body{
     font-family: "Alumni Sans SC", sans-serif;
+}
 
 .btn-outline-success {
         color: black;
@@ -22,7 +23,6 @@ body{
         width: auto;
         max-width: 180px;
         display: flex;
-        flex: 0 0 20%;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -30,7 +30,7 @@ body{
         font-size: 1.5rem;
 
     }
-}
+
 
     .btn-outline-success:active,
     .btn-outline-success:focus,
@@ -47,7 +47,7 @@ body{
     }
     iframe{
         width: 100vw;
-        height: 100vh;
+        height: 100svh;
         display:flex;
 
     }
@@ -100,19 +100,18 @@ body{
         font-size: 2rem;
     }
     .foot {
-        display: flex;
-        text-align: center;
-        flex-direction:column;
-           border-top: 1px solid;
-           border-color: black;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            position: absolute;
-            width: 80vw;
-            left: 10vw;
-        font-family: "Alumni Sans SC", sans-serif ;
-        font-size: 1.5rem
-        }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   /* centers content horizontally */
+    text-align: center;    /* ensures text inside is centered */
+    border-top: 1px solid black;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 1.5rem;
+    width: 100%;           /* full width, responsive */
+}
         h1{
             text-align:center;
             justify-content: center;
