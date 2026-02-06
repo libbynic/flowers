@@ -22,9 +22,9 @@ export default function App() {
              <p className="welcome"> Welcome User! </p>
         </header>
         <main> Router here </main>
-        
+
         <footer className="foot">
-               <br>
+               <br> 
            Libby Nichols 
            <a href = https://github.com/libbynic/flowers> Github Repo</a>
        </footer> 
