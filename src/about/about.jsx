@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Login() {
+export function About() {
   return (
     <div>
      <main>

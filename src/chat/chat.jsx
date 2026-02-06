@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Login() {
+export function Chat() {
   return (
   <main className="chat-box">
             Chat box here!! Web socket element 
