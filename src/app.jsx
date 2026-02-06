@@ -24,9 +24,9 @@ export default function App() {
         <main> Router here </main>
 
         <footer className="foot">
-               <br> 
+               <br />
            Libby Nichols 
-           <a href = https://github.com/libbynic/flowers> Github Repo</a>
+           <a href = "https://github.com/libbynic/flowers"> Github Repo </a>
        </footer> 
     </div>
     );
