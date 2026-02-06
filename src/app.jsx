@@ -9,6 +9,7 @@ import { About } from './about/about';
 
 export default function App() {
     return(
+        <BrowserRouter>
         <div>
          <header>
                    <nav className="navbar navbar-expand-lg my-nav-bar">
@@ -38,5 +39,10 @@ export default function App() {
            <a href = "https://github.com/libbynic/flowers"> Github Repo </a>
        </footer> 
     </div>
+    </BrowserRouter>
     );
+}
+
+function NotFound() {
+  return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
 }
