@@ -14,16 +14,16 @@ export default function App() {
          <header>
                    <nav className="navbar navbar-expand-lg my-nav-bar">
                 <div className="container-fluid">
-                    <a className="navbar-brand  league-script-regular" href="#"> <b>Blossom Blueprint</b></a>
+                    <NavLink className="navbar-brand  league-script-regular" to="#"> <b>Blossom Blueprint</b></NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                <ul> <a className="btn btn-outline-success" href="index.html"> Home </a></ul>
-                <ul> <a className="btn btn-outline-success"href="projects.html"> Projects </a></ul>
-                <ul> <a className="btn btn-outline-success"href="chat.html"> Chat </a></ul>
-                <ul> <a className="btn btn-outline-success"href="about.html">About</a></ul>
+                <ul> <NavLink className="btn btn-outline-success" to=""> Home </NavLink> </ul>
+                <ul> <NavLink className="btn btn-outline-success"to="projects"> Projects </NavLink></ul>
+                <ul> <NavLink className="btn btn-outline-success"to="chat"> Chat </NavLink></ul>
+                <ul> <NavLink className="btn btn-outline-success"to="about">About</NavLink></ul>
                 
             </div>
         </div>
@@ -31,12 +31,18 @@ export default function App() {
 </nav>
              <p className="welcome"> Welcome User! </p>
         </header>
-        <main> Router here </main>
+            <Routes>
+    <Route path='/' element={<Login />} exact />
+    <Route path='/projects' element={<Projects />} />
+    <Route path='/chat' element={<Chat />} />
+    <Route path='/about' element={<About />} />
+    <Route path='*' element={<NotFound />} />
+    </Routes>
 
         <footer className="foot">
                <br />
            Libby Nichols 
-           <a href = "https://github.com/libbynic/flowers"> Github Repo </a>
+           <NavLink to= "https://github.com/libbynic/flowers"> Github Repo </NavLink>
        </footer> 
     </div>
     </BrowserRouter>
