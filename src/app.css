@@ -45,7 +45,7 @@ body{
         border-color: #bac9d4 !important;
         box-shadow: none;
     }
-    
+
     .navbar.my-nav-bar{
         background-color: #bac9d4;
         height: 8em;
@@ -108,14 +108,14 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;   /* centers content horizontally */
-    text-align: center;    /* ensures text inside is centered */
+    align-items: center;  
+    text-align: center;    
     border-top: 1px solid black;
     margin-top: 3rem;
     padding-top: 1.5rem;
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 1.5rem;
-    width: 100%;           /* full width, responsive */
+    width: 100%;          
 }
         h1{
             text-align:center;
