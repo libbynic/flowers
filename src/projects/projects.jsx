@@ -2,7 +2,6 @@ import React from 'react';
 export function Projects() {
   return (
    <main>
-        <body>
             <div className="center-div"/>
                 <h1>Start New Project!</h1>
                 <div className="form-buttons"> 
@@ -136,7 +135,6 @@ export function Projects() {
 </form>
 <br/>
 <img src="projectsImage.jpg" width="300" />
-</body>
 <br/>
 </main>
   );
