@@ -1,0 +1,17 @@
+ .center-img {
+        text-align: center;
+        justify-content: center;
+        display:flex;
+        flex-direction:row;
+    }
+    
+.box-text {
+        display: flex;
+        text-align: left;
+        border: 1px solid;
+        border-color: black;
+        border-radius: .5rem;
+        padding: 1.5rem;
+        margin: 2rem;
+        font-size: 2rem;
+    }
