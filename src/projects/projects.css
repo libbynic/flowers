@@ -20,8 +20,6 @@
         font-size: 1.5rem;
 
     }
-
-
     .btn-outline-success:active,
     .btn-outline-success:focus,
     .btn-outline-success:focus-visible,
@@ -30,4 +28,10 @@
         background-color: #bac9d4 !important;
         border-color: #bac9d4 !important;
         box-shadow: none;
+    }
+ .center-div {
+        text-align: center;
+        justify-content: center;
+        display:flex;
+        flex-direction:column;
     }
