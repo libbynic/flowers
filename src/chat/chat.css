@@ -1,0 +1,10 @@
+    .chat-box {
+            display: flex;
+            text-align: left;
+            border: 1px solid;
+            border-color: black;
+            border-radius: .5rem;
+            padding: 4rem;
+            margin: 4rem;
+
+        }

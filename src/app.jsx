@@ -14,7 +14,7 @@ export default function App() {
          <header>
                    <nav className="navbar navbar-expand-lg my-nav-bar">
                 <div className="container-fluid">
-                    <NavLink className="navbar-brand  league-script-regular" to="#"> <b>Blossom Blueprint</b></NavLink>
+                    <NavLink className="navbar-brand  league-script-regular" to="/"> <b>Blossom Blueprint</b></NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
