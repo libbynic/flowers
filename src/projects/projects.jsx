@@ -15,7 +15,7 @@ export function Projects() {
                     </li>
                 </form>
                 <form action="formSubmit.html" method="post">
-                    <div className="accordion" id="accordionPanelsStayOpenExample"/>
+                    <div className="accordion" id="accordionPanelsStayOpenExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header">
                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -52,6 +52,7 @@ export function Projects() {
         </p>
     </div>
     </div>
+  </div>
   </div>
   <div className="accordion-item">
     <h2 className="accordion-header">

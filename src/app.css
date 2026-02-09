@@ -33,15 +33,19 @@ body{
     }
 
 
-    .btn-outline-success:active,
-    .btn-outline-success:focus,
-    .btn-outline-success:focus-visible,
-    .btn-outline-success:hover {
+.btn-outline-success:active,
+.btn-outline-success:focus,
+.btn-outline-success:hover,
+.btn-check:checked + .btn-outline-success,
+.btn-outline-success.active,
+.btn-outline-success.dropdown-toggle.show,
+.btn-outline-success:active:focus {
         color: black;
         background-color: #bac9d4 !important;
         border-color: #bac9d4 !important;
-        box-shadow: none !important;
+        box-shadow: none;
     }
+    
     .navbar.my-nav-bar{
         background-color: #bac9d4;
         height: 8em;
