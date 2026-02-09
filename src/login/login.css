@@ -1,0 +1,32 @@
+.center-div {
+        text-align: center;
+        justify-content: center;
+        display:flex;
+        flex-direction:column;
+    }
+    .btn-outline-success {
+        color: black;
+        background-color: rgb(246,244,239);
+        border-color: #bac9d4;
+        height: 3rem;
+        width: auto;
+        max-width: 180px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5rem;
+
+    }
+
+
+    .btn-outline-success:active,
+    .btn-outline-success:focus,
+    .btn-outline-success:focus-visible,
+    .btn-outline-success:hover {
+        color: black;
+        background-color: #bac9d4 !important;
+        border-color: #bac9d4 !important;
+        box-shadow: none;
+    }
