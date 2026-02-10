@@ -30,12 +30,18 @@
         box-shadow: none;
     }
  .center-div {
-        text-align: center;
-        justify-content: center;
         display:flex;
         flex-direction:column;
         align-items: center;
+          text-align: center;
+        justify-content: center;
     }
+
+.center-img {
+    align-items: center;
+          text-align: center;
+        justify-content: center;
+}
 
     .form-group{
         display:flex;

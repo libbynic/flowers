@@ -3,6 +3,7 @@ export function Projects() {
   return (
    <main>
             <div className="center-div">
+
                 <h1>Start New Project!</h1>
                 <div className="form-buttons"> 
                     <button type="button" className="btn btn-outline-success">View Past Projects</button>
@@ -15,6 +16,7 @@ export function Projects() {
                     </li>
                 </form>
                 <form action="formSubmit.html" method="post">
+
                     <div className="accordion" id="accordionPanelsStayOpenExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header">
@@ -54,6 +56,7 @@ export function Projects() {
     </div>
   </div>
   </div>
+ 
   <div className="accordion-item">
     <h2 className="accordion-header">
         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
@@ -91,6 +94,8 @@ export function Projects() {
             </p>
         </div>
     </div>
+    </div>
+
     <div className="accordion-item">
         <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
@@ -129,13 +134,14 @@ export function Projects() {
       </div>
     </div>
 </div>
-</div>
 <div className="form-buttons">
     <button className="btn btn-outline-success"> Add Arrangment </button>
 </div>
 </form>
 <br/>
+<div className='center-img'>
 <img src="projectsImage.jpg" width="300" />
+</div>
 </div>
 <br/>
 </main>
