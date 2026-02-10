@@ -22,9 +22,9 @@ export default function App() {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                 <ul> <NavLink className="btn btn-outline-success" to=""> Home </NavLink> </ul>
-                <ul> <NavLink className="btn btn-outline-success"to="projects"> Projects </NavLink></ul>
-                <ul> <NavLink className="btn btn-outline-success"to="chat"> Chat </NavLink></ul>
-                <ul> <NavLink className="btn btn-outline-success"to="about"> About </NavLink></ul>
+                <ul> <NavLink className="btn btn-outline-success" to="projects"> Projects </NavLink> </ul>
+                <ul> <NavLink className="btn btn-outline-success" to="chat"> Chat </NavLink> </ul>
+                <ul> <NavLink className="btn btn-outline-success" to="about"> About </NavLink> </ul>
                 
             </div>
         </div>
