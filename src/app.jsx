@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Chat } from './chat/chat';
@@ -23,7 +24,7 @@ export default function App() {
                 <ul> <NavLink className="btn btn-outline-success" to=""> Home </NavLink> </ul>
                 <ul> <NavLink className="btn btn-outline-success"to="projects"> Projects </NavLink></ul>
                 <ul> <NavLink className="btn btn-outline-success"to="chat"> Chat </NavLink></ul>
-                <ul> <NavLink className="btn btn-outline-success"to="about">About</NavLink></ul>
+                <ul> <NavLink className="btn btn-outline-success"to="about"> About </NavLink></ul>
                 
             </div>
         </div>
