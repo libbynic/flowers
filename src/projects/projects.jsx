@@ -55,7 +55,6 @@ export function Projects() {
     </div>
     </div>
   </div>
-  </div>
  
   <div className="accordion-item">
     <h2 className="accordion-header">
@@ -133,6 +132,7 @@ export function Projects() {
         </p>
       </div>
     </div>
+</div>
 </div>
 <div className="form-buttons">
     <button className="btn btn-outline-success"> Add Arrangment </button>
