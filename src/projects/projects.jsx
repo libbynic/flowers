@@ -135,7 +135,9 @@ export function Projects() {
 </div>
 </form>
 <br/>
+<div className="center-div"> 
 <img src="projectsImage.jpg" width="300" />
+</div>
 <br/>
 </main>
   );
