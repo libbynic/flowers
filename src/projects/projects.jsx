@@ -2,7 +2,7 @@ import React from 'react';
 export function Projects() {
   return (
    <main>
-            <div className="center-div"/>
+            <div className="center-div">
                 <h1>Start New Project!</h1>
                 <div className="form-buttons"> 
                     <button type="button" className="btn btn-outline-success">View Past Projects</button>
@@ -135,7 +135,6 @@ export function Projects() {
 </div>
 </form>
 <br/>
-<div className="center-div"> 
 <img src="projectsImage.jpg" width="300" />
 </div>
 <br/>
