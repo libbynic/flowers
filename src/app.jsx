@@ -29,7 +29,6 @@ export default function App() {
         </div>
     </div>
 </nav>
-             <p className="welcome"> Welcome User! </p>
         </header>
             <Routes>
     <Route path='/' element={<Login />} exact />
