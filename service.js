@@ -7,6 +7,7 @@ export function registerUser(email, password) {
 
     users.push({ email, password });
     localStorage.setItem('users', JSON.stringify(users));
+    return {success: true};
 }
 export function loginUser(email, password) {
     console.log(`register user with email: ${email} and password: ${password}`);
@@ -15,5 +16,14 @@ export function loginUser(email, password) {
     const textStorage = (localStorage.getItem('users') || '[]');
     const users = JSON.parse(textStorage);
 
-    return users.find(u => u.email === email && u.password === password);
+    const foundUser = users.find(u => u.email === email && u.password === password);
+    if (foundUser){
+        return {success: true, user: foundUser};
+    }
+    else {
+        return {success: false, message: "Invalid email or password"};
+    }
 }
+//     users.push({ email, password });
+//     localStorage.setItem('users', JSON.stringify(users));
+// }

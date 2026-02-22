@@ -1,16 +1,40 @@
 import React from 'react';
 import { registerUser, loginUser } from '../../service';
+import  {useNavigate} from 'react-router-dom';
 
 export function Login({setUser}) {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState(' ')
+    const [error, setError] = React.useState(null);
+    const [success, setSuccess] = React.useState(null);
+    const navigate = useNavigate();
 
     function register(event) {
         event.preventDefault();
-        registerUser(email, password);
+        setError(null);
+        setSuccess(null);
+        const create = registerUser(email, password);
+        if (create.success) {
+            setSuccess("Account created! You can now log in.")
+            setError(null);
+        }
+        else {
+            setError(create.message);
+        }
     }
-    function login(){
-        loginUser(email, password)
+    function login(event){
+        event.preventDefault();
+        const signIn =  loginUser(email, password)
+        setError(null)
+        setSuccess(null)
+        if (signIn.success) {
+            setSuccess("Sign in successful!")
+            navigate("/projects");
+        }
+        else {
+            setSuccess(null);
+            setError(signIn.message || "Invalid credentials");
+        }
     }
   return (
    <main>
@@ -20,6 +44,8 @@ export function Login({setUser}) {
 </div>
     <br/>
     <form onSubmit={register} className="form">
+        {success && <div className="alert alert-success">{success}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
         <div className="form-group"> 
             <label htmlFor="email">Email: </label>
             <input type="email" id="email" name="varEmail" onChange={(e) => setEmail(e.target.value)} />
