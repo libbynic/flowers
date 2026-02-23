@@ -1,4 +1,5 @@
 import React from 'react';
+import { Accordion } from 'react-bootstrap';
 export function Projects({user}) {
   return (
    <main>
@@ -15,6 +16,39 @@ export function Projects({user}) {
                     </li>
                 </form>
                 <form action="formSubmit.html" method="post">
+                    <Accordion>
+                        <Accordion.Item>
+                        <Accordion.Header><input type="text" id="text" name="varText" placeholder="Arrangement Name"/> </Accordion.Header>
+                        <Accordion.Body>
+                                                        <p>  <label htmlFor="Arrangement">What type of arrangement are you making? </label>
+                                        <select id="Arrangement" name="Arrangement">
+                                            <option value="" disabled selected> Choose a design </option>
+                                            <option value="Bouquet">Bouquet</option>
+                                            <option value="Arch"> Arch </option>
+                                            <option value="Corsage"> Corsage </option> 
+                                            <option value="Boutonnieres"> Boutonniere </option>
+                                            <option value="Bud Vases"> Bud Vase </option>
+                                            <option value=" Custom "> Custom </option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <label htmlFor="flower type"> Flower:</label>
+            <select id="flower type" name="flower type">
+                <option value="" disabled selected> Choose a flower type </option>
+                <option value="flower"> Sun Flowers </option>
+                <option value="flower"> Roses </option>
+                <option value="flower"> Daliah </option>
+                <option value="flower"> Chrysanthemums </option>
+            </select>
+                <label htmlFor="number">Number of Stems:</label>
+                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
+            <button>
+                <i className="bi bi-plus"></i>
+            </button>
+        </p>
+                        </Accordion.Body>
+                     </Accordion.Item>
+                    </Accordion>
 
                     <div className="accordion" id="accordionPanelsStayOpenExample">
                         <div className="accordion-item">
