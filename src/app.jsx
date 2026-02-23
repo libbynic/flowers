@@ -9,6 +9,7 @@ import { Projects } from './projects/projects';
 import { About } from './about/about';
 
 export default function App() {
+    const [user, setUser] = React.useState(null);
     return(
         <BrowserRouter>
         <div>
@@ -33,7 +34,7 @@ export default function App() {
         </header>
             <Routes>
     <Route path='/' element={<Login />} exact />
-    <Route path='/projects' element={<Projects />} />
+    <Route path='/projects' element={<Projects user ={user} />} />
     <Route path='/chat' element={<Chat />} />
     <Route path='/about' element={<About />} />
     <Route path='*' element={<NotFound />} />

@@ -1,10 +1,9 @@
 import React from 'react';
-export function Projects() {
+export function Projects({user}) {
   return (
    <main>
             <div className="center-div">
-
-                <h1>Start New Project!</h1>
+                <h1>{user ? user.email : 'Guest'}, start New Project!</h1>
                 <div className="form-buttons"> 
                     <button type="button" className="btn btn-outline-success">View Past Projects</button>
                 </div>
