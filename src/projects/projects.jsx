@@ -1,13 +1,37 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
 export function Projects({user}) {
-    const [arrangement, setArrangements] = React.useState([{id:1, name:""}]); 
+    const [arrangement, setArrangements] = React.useState([{id:1, name:"", flowers: [
+        {id: 1, type:"", stems:0}
+    ]}]); 
     
     function addArrangement() {
         setArrangements(prev => [
             ...prev, 
-            {id:Date.now(), name:""}
+            {id:Date.now(), name:"" , flowers: []}
         ]);
+    }
+
+    function addFlower(arrangementId) {
+        setArrangements(prev => 
+            prev.map(arrangement =>
+            {
+                if (arrangement.id === arrangementId) {
+                    return {
+                        ...arrangement, 
+                        flowers: [
+                            ...arrangement.flowers, 
+                            {
+                                id: Date.now(),
+                                type: "",
+                                stems: 0
+                            }
+                        ]
+                    };
+                }
+                return arrangement;
+            })
+        );
     }
   return (
    <main>
@@ -46,21 +70,23 @@ export function Projects({user}) {
                                             <option value=" Custom "> Custom </option>
                                         </select>
                                     </p>
-                                    <p>
-                                        <label htmlFor="flower type"> Flower:</label>
-            <select defaultValue="" id="flower type" name="flower type">
-                <option value="" disabled> Choose a flower type </option>
-                <option value="flower"> Sun Flowers </option>
-                <option value="flower"> Roses </option>
-                <option value="flower"> Daliah </option>
-                <option value="flower"> Chrysanthemums </option>
-            </select>
-                <label htmlFor="number">Number of Stems:</label>
-                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
-            <button>
-                <i className="bi bi-plus"></i>
-            </button>
-        </p>
+                                        {arrangement.flowers.map(flower => (
+                                            <div key={flower.id}>
+                                                <label htmlFor="flower type"> Flower:</label>
+                                            <select defaultValue="" id="flower type" name="flower type">
+                                                <option value="" disabled> Choose a flower type </option>
+                                                <option value="flower"> Sun Flowers </option>
+                                                <option value="flower"> Roses </option>
+                                                <option value="flower"> Daliah </option>
+                                                <option value="flower"> Chrysanthemums </option>
+                                            </select>
+                                                <label htmlFor="number">Number of Stems:</label>
+                                                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
+                                            </div>
+                                       ))}
+                                            <button type="button" onClick={()=> addFlower(arrangement.id)}>
+                                                <i className="bi bi-plus"></i>
+                                            </button>
                             </Accordion.Body>
                             </Accordion.Item>
                         ))}
