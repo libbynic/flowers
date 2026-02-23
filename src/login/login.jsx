@@ -29,6 +29,7 @@ export function Login({setUser}) {
         setSuccess(null)
         if (signIn.success) {
             setSuccess("Sign in successful!")
+            setUser({email});
             navigate("/projects");
         }
         else {

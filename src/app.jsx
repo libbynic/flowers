@@ -33,7 +33,7 @@ export default function App() {
 </nav>
         </header>
             <Routes>
-    <Route path='/' element={<Login />} exact />
+    <Route path='/' element={<Login setUser={setUser} />} />
     <Route path='/projects' element={<Projects user ={user} />} />
     <Route path='/chat' element={<Chat />} />
     <Route path='/about' element={<About />} />
