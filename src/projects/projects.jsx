@@ -33,6 +33,20 @@ export function Projects({user}) {
             })
         );
     }
+    function removeFlower(arrangementId, flowerId) {
+    setArrangements(prev =>
+    prev.map(arrangement => {
+      if (arrangement.id === arrangementId) {
+        // Return a new arrangement with flowers filtered out
+        return {
+          ...arrangement,
+          flowers: arrangement.flowers.filter(flower => flower.id !== flowerId)
+        };
+      }
+      return arrangement;
+    })
+  );
+}
   return (
    <main>
             <div className="center-div">
@@ -56,6 +70,7 @@ export function Projects({user}) {
                             > 
                             <Accordion.Header> 
                                 <input type="text" id="text" name="varText" placeholder="Arrangement Name"/>
+                                <button type="button"> <i className="bi bi-trash"> </i> </button>
                             </Accordion.Header>
 
                             <Accordion.Body> 
@@ -82,6 +97,7 @@ export function Projects({user}) {
                                             </select>
                                                 <label htmlFor="number">Number of Stems:</label>
                                                 <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
+                                                <button type="button" onClick={() => removeFlower(arrangement.id, flower.id)}> <i className="bi bi-trash"> </i> </button>
                                             </div>
                                        ))}
                                             <button type="button" onClick={()=> addFlower(arrangement.id)}>
