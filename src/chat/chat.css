@@ -2,18 +2,19 @@
             display: flex;
             text-align: left;
             border: 1px solid;
-            border-color: black;
+            border-color: rgb(244, 12, 12);
             border-radius: .5rem;
             padding: 15rem;
             margin: 4rem;
+            flex-direction: column;
 
         }
     .message-box {
-        display: flex;
         text-align: left; 
         border: 1px solid; 
-        border-color: black;
+        border-color: rgb(239, 14, 14);
         border-radius: .5rem; 
         margin: 4rem; 
         padding: 5rem;
+        flex-direction: column;
     }

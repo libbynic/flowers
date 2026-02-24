@@ -139,7 +139,7 @@ body{
             display: flex;
             text-align: left;
             border: 1px solid;
-            border-color: black;
+            border-color: rgb(40, 38, 38);
             border-radius: .5rem;
             padding: 4rem;
             margin: 4rem;
