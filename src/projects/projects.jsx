@@ -47,6 +47,11 @@ export function Projects({user}) {
     })
   );
 }
+function removeArrangement(arrangementId){
+    setArrangements( prev =>
+        prev.filter(arrangement => arrangement.id !== arrangementId)
+    );
+}
   return (
    <main>
             <div className="center-div">
@@ -70,7 +75,6 @@ export function Projects({user}) {
                             > 
                             <Accordion.Header> 
                                 <input type="text" id="text" name="varText" placeholder="Arrangement Name"/>
-                                <button type="button"> <i className="bi bi-trash"> </i> </button>
                             </Accordion.Header>
 
                             <Accordion.Body> 
@@ -103,6 +107,9 @@ export function Projects({user}) {
                                             <button type="button" onClick={()=> addFlower(arrangement.id)}>
                                                 <i className="bi bi-plus"></i>
                                             </button>
+                                        <div>
+                                       <button type="button" className="btn btn-outline-success"><i className="bi bi-trash" onClick={() => removeArrangement(arrangement.id)}> </i> </button>
+                                        </div>
                             </Accordion.Body>
                             </Accordion.Item>
                         ))}
