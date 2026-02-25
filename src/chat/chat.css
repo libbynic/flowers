@@ -1,23 +1,12 @@
-    /* .chat-box {
-            display: flex;
-            text-align: left;
-            border: 1px solid;
-            border-color: rgb(12, 12, 12);
-            border-radius: .5rem;
-            padding: 15rem;
-            margin: 4rem;
-            flex-direction: column;
-
-        } */
 
         .chat-box {
-            width: 15rem;
-            margin: 4rem;
-            background-color: rgb(232, 27, 27);
-            border-radius: .5rem;
-            border-color: black;
-            overflow: hidden;
-
+            width: 70%;
+            height: 50vh; 
+            display: flex;
+            flex-direction: column;
+            border: 5rem black;
+            border-radius: 10px;
+            background-color: rgb(253, 255, 255);
         }
         .message-container {
             display: flex;
@@ -27,19 +16,42 @@
             padding: 10px;
             margin: 10px;
             border-radius: 5px;
-            max-width: 70%;
+            height:30%;
+            width: 100%;
             word-wrap: break-word;
             display: flex;
             align-items: center;
-            background-color: aqua;
+            background-color: rgb(222, 225, 217);
         }
-    /* .message-box {
-        text-align: left; 
-        border: 1px solid; 
-        border-color: rgb(10, 9, 9);
-        border-radius: .5rem; 
-        width: 100%;
-        margin: 2rem;
-        padding: 4rem; 
-        flex-direction: column;
-    } */
+        .messages{
+            flex: 1;
+            overflow-y: auto;
+            padding:10px;
+
+        }
+        .input-box{
+            display: flex;
+            padding: 10px; 
+            border-top: 1px solid black; 
+        }
+        .input-area input {
+            flex:1;
+            padding: 8px;
+        }
+        .message {
+        background: #e5e5ea;
+        padding: 8px 12px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        max-width: 70%;
+        }
+
+        .message-user {
+        background: #bac9d4;
+        padding: 8px 12px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        max-width: 70%;
+        
+        }
+ 

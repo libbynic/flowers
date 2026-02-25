@@ -4,10 +4,15 @@ export function Chat() {
   return (
   <main>
     <div className="chat-box"> 
-      <div className="message-box"> 
-        <input type="text" id="text" name="varText" placeholder="Start Typing..."/> </div> 
-    </div>
-            Chat box here!! Web socket element 
+      <div className="messages">
+          <div className="message"> Hello</div>
+          <div className="message-user">Hi!</div>
+      </div>
+      <div className="input-box"> 
+        <input type="text" id="text" name="varText" placeholder="Start Typing..."/> 
+        <button> Send </button>
+        </div> 
+    </div> 
         </main>
   );
 }
