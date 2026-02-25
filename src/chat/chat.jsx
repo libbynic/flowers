@@ -16,8 +16,12 @@ export function Chat() {
   <main>
     <div className="chat-box"> 
       <div className="messages">
-          <div className="message"> Hello</div>
-          <div className="message-user">Hi!</div>
+        {messages.map((msg, index) => (
+          <div key={index} className={msg.sender === "user" ? "message-user" : "message"}>
+            {msg.text}
+            </div>
+        )
+        )}
       </div>
       <div className="input-box"> 
         <input type="text" id="text" name="varText" placeholder="Start Typing..." value={input} onChange={(e) => setInput(e.target.value)}/> 
