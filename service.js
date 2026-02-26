@@ -29,10 +29,11 @@ export function loginUser(email, password) {
 // }
 
 const imgFiles = [
-    ,
-    {text: 'nathan', author: 'cs260'},
-    {text: 'brookie', author: 'cookie'},
-    {text:"Hey, you got this", author:"Libby"}
+    "wedding-florals.jpg",
+    "flowerCenter.jpg",
+    "FrenchBlooms.jpg",
+    "lightBlue.jpg",
+    "QuickSandRoses.jpg"
 ];
 export function getPicture(){
     const randomIndex = Math.floor(Math.random() *imgFiles.length);
