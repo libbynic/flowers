@@ -28,3 +28,14 @@ export function loginUser(email, password) {
 //     localStorage.setItem('users', JSON.stringify(users));
 // }
 
+const imgFiles = [
+    ,
+    {text: 'nathan', author: 'cs260'},
+    {text: 'brookie', author: 'cookie'},
+    {text:"Hey, you got this", author:"Libby"}
+];
+export function getPicture(){
+    const randomIndex = Math.floor(Math.random() *imgFiles.length);
+    return imgFiles[randomIndex];
+
+}
