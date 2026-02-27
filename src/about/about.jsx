@@ -1,4 +1,5 @@
 import React from 'react';
+import './about.css'
 import { getPicture } from '../../service';
 export function About() {
   
