@@ -1,6 +1,7 @@
 import React from 'react';
 import { getPicture } from '../../service';
 export function About() {
+  
   const [img, setImage] = React.useState();
   React.useEffect(() => {
     setImage(getPicture());
