@@ -40,3 +40,5 @@ export function getPicture(){
     return imgFiles[randomIndex];
 
 }
+
+

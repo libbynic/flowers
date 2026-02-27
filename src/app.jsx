@@ -12,6 +12,7 @@ import { About } from './about/about';
 export default function App() {
     const [user, setUser] = React.useState(null);
     return(
+
         <BrowserRouter>
         <div>
          <header>
@@ -27,6 +28,7 @@ export default function App() {
                 <ul> <NavLink className="btn btn-outline-success" to="projects"> Projects </NavLink> </ul>
                 <ul> <NavLink className="btn btn-outline-success" to="chat"> Chat </NavLink> </ul>
                 <ul> <NavLink className="btn btn-outline-success" to="about"> About </NavLink> </ul>
+                <ul> <NavLink className="btn btn-outline-success" onClick={() => {setUser(null);}} to=""> Logout </NavLink ></ul>
                 
             </div>
         </div>

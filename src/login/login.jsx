@@ -1,5 +1,5 @@
 import React from 'react';
-import { registerUser, loginUser } from '../../service';
+import { registerUser, loginUser} from '../../service';
 import  {useNavigate} from 'react-router-dom';
 
 export function Login({setUser}) {
