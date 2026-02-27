@@ -95,8 +95,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - I did complete this part of the deliverable and build a chat box that allows a user to send a message (with a hardcoded response) for the websocket element. And, I made a image generation function to mock out my API call on the abouts page of my website.  
+- [x] **Hooks** - I did complete this part of the deliverable and used lots of hooks to control how my state variables would act. 
 
 ## 🚀 Service deliverable
 
