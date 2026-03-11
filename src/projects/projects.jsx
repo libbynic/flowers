@@ -4,6 +4,9 @@ export function Projects({user}) {
     const [arrangement, setArrangements] = React.useState([{id:1, name:"", flowers: [
         {id: 1, type:"", stems:0}
     ]}]); 
+
+    const [savedProjects, setSavedProjects] = React.useState([]);
+    const [showPastProjects, setShowPastProjects] = React.useState(false);
     
     function addArrangement() {
         setArrangements(prev => [
@@ -52,12 +55,75 @@ function removeArrangement(arrangementId){
         prev.filter(arrangement => arrangement.id !== arrangementId)
     );
 }
+async function saveProject() {
+  await fetch('/api/projects', {
+    method: 'POST',
+    credentials: 'include', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      arrangements: arrangement
+    })
+  });
+}
+
+async function loadProjects() {
+  const response = await fetch('/api/projects', { credentials: 'include'});
+  const data = await response.json();
+  setSavedProjects(data);
+  setShowPastProjects(true);
+}
+
+function updateArrangementName(arrangementId, value) {
+  setArrangements(prev =>
+    prev.map(arr =>
+      arr.id === arrangementId
+        ? { ...arr, name: value }
+        : arr
+    )
+  );
+}
+function updateFlowerType(arrangementId, flowerId, value) {
+  setArrangements(prev =>
+    prev.map(arr => {
+      if (arr.id === arrangementId) {
+        return {
+          ...arr,
+          flowers: arr.flowers.map(flower =>
+            flower.id === flowerId
+              ? { ...flower, type: value }
+              : flower
+          )
+        };
+      }
+      return arr;
+    })
+  );
+}
+function updateFlowerStems(arrangementId, flowerId, value) {
+  setArrangements(prev =>
+    prev.map(arr => {
+      if (arr.id === arrangementId) {
+        return {
+          ...arr,
+          flowers: arr.flowers.map(flower =>
+            flower.id === flowerId
+              ? { ...flower, stems: value }
+              : flower
+          )
+        };
+      }
+      return arr;
+    })
+  );
+}
   return (
    <main>
             <div className="center-div">
                 <h1>{user ? user.email : 'Guest'}, start New Project!</h1>
                 <div className="form-buttons"> 
-                    <button type="button" className="btn btn-outline-success">View Past Projects</button>
+                    <button type="button" className="btn btn-outline-success" onClick={loadProjects}>View Past Projects</button>
                 </div>
                 <br/>
                 <form action="formSubmit.html" method="post">
@@ -74,12 +140,12 @@ function removeArrangement(arrangementId){
                             key={arrangement.id}
                             > 
                             <Accordion.Header> 
-                                <input type="text" id="text" name="varText" placeholder="Arrangement Name"/>
+                                <input type="text" id="text" name="varText" placeholder="Arrangement Name" value={arrangement.name} onChange={(e) => updateArrangementName(arrangement.id, e.target.value)}/>
                             </Accordion.Header>
 
                             <Accordion.Body> 
                                   <p>  <label htmlFor="Arrangement">What type of arrangement are you making? </label>
-                                        <select defaultValue="" id="Arrangement" name="Arrangement">
+                                        <select id="Arrangement" name="Arrangement">
                                             <option value="" disabled> Choose a design </option>
                                             <option value="Bouquet">Bouquet</option>
                                             <option value="Arch"> Arch </option>
@@ -89,18 +155,19 @@ function removeArrangement(arrangementId){
                                             <option value=" Custom "> Custom </option>
                                         </select>
                                     </p>
-                                        {arrangement.flowers.map(flower => (
+                                        {arrangement.flowers.map((flower) => (
                                             <div key={flower.id}>
                                                 <label htmlFor="flower type"> Flower:</label>
-                                            <select defaultValue="" id="flower type" name="flower type">
+                                            <select  id="flower type" name="flower type" value={flower.type} onChange={(e) => updateFlowerType(arrangement.id, flower.id, e.target.value)}>
                                                 <option value="" disabled> Choose a flower type </option>
-                                                <option value="flower"> Sun Flowers </option>
-                                                <option value="flower"> Roses </option>
-                                                <option value="flower"> Daliah </option>
-                                                <option value="flower"> Chrysanthemums </option>
+                                                <option value=" Sunflower"> Sun Flowers </option>
+                                                <option value="Roses"> Roses </option>
+                                                <option value="Daliah"> Daliah </option>
+                                                <option value="Chrysanthemums"> Chrysanthemums </option>
+                                                <option value="Carnations"> Carnations </option>
                                             </select>
                                                 <label htmlFor="number">Number of Stems:</label>
-                                                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0"/>
+                                                <input type="number" name="varNumber" id="number" min="1" step="1" placeholder="0" value={flower.stems} onChange={(e) => updateFlowerStems(arrangement.id, flower.id, e.target.value)}/>
                                                 <button type="button" onClick={() => removeFlower(arrangement.id, flower.id)}> <i className="bi bi-trash"> </i> </button>
                                             </div>
                                        ))}
@@ -115,7 +182,37 @@ function removeArrangement(arrangementId){
                         ))}
                     </Accordion> 
     <button type="button" className="btn btn-outline-success" onClick={addArrangement}> Add Arrangment </button>
+    <button type="button" className="btn btn-outline-success" onClick={saveProject}> Save Project </button>
 </form>
+
+{showPastProjects && (
+<div>
+  <h2>Past Projects</h2>
+
+  {savedProjects.map(project => (
+    <div key={project.id}>
+      <h4>{new Date(project.date).toLocaleDateString()}</h4>
+
+      {project.arrangements.map(arr => (
+        <div key={arr.id}>
+          <strong>{arr.name || "Arrangement"}</strong>
+
+          <ul>
+            {arr.flowers.map(flower => (
+              <li key={flower.id}>
+                {flower.type} — {flower.stems} stems
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      ))}
+
+    </div>
+  ))}
+
+</div>
+)}
 </div>   
 <br/>
 <div className='center-img'>

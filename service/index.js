@@ -6,9 +6,9 @@ const app = express();
 
 const authCookieName = 'token';
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
+// The projects and users are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let scores = [];
+let projects = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -72,15 +72,9 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-// GetScores
-apiRouter.get('/scores', verifyAuth, (_req, res) => {
-  res.send(scores);
-});
-
-// SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
+// GetArrangement
+apiRouter.get('/projects', verifyAuth, (_req, res) => {
+  res.send(projects);
 });
 
 // Default error handler
@@ -93,27 +87,7 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-// updateScores considers a new score for inclusion in the high scores.
-function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
 
-  if (!found) {
-    scores.push(newScore);
-  }
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
-}
 
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
@@ -146,4 +120,26 @@ function setAuthCookie(res, authToken) {
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
+});
+
+apiRouter.post('/projects', verifyAuth, (req, res) => {
+  const project = {
+    id: uuid.v4(),
+    user: req.cookies[authCookieName],
+    arrangements: req.body.arrangements,
+    date: new Date()
+  };
+
+  projects.push(project);
+  res.send(project);
+});
+
+app.post('/api/projects', (req, res) => {
+  const project = req.body;
+  projects.push(project);
+  res.send({ success: true });
+});
+
+app.get('/api/projects', (req, res) => {
+  res.send(projects);
 });

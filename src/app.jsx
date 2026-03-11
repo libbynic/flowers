@@ -8,9 +8,12 @@ import { Chat } from './chat/chat';
 import { Login } from './login/login';
 import { Projects } from './projects/projects';
 import { About } from './about/about';
+import { AuthState } from './login/authState';
 
 export default function App() {
     const [user, setUser] = React.useState(null);
+    const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
     return(
 
         <BrowserRouter>
@@ -25,10 +28,14 @@ export default function App() {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                 <ul> <NavLink className="btn btn-outline-success" to=""> Home </NavLink> </ul>
+                {authState === AuthState.Authenticated && (
                 <ul> <NavLink className="btn btn-outline-success" to="projects"> Projects </NavLink> </ul>
+                )}
+                {authState === AuthState.Authenticated &&  (
                 <ul> <NavLink className="btn btn-outline-success" to="chat"> Chat </NavLink> </ul>
+                )}
                 <ul> <NavLink className="btn btn-outline-success" to="about"> About </NavLink> </ul>
-                <ul> <NavLink className="btn btn-outline-success" onClick={() => {setUser(null);}} to=""> Logout </NavLink ></ul>
+                <ul> <NavLink className="btn btn-outline-success" onClick={() => logout()} to=""> Logout </NavLink ></ul>
                 
             </div>
         </div>
@@ -36,7 +43,20 @@ export default function App() {
 </nav>
         </header>
             <Routes>
-    <Route path='/' element={<Login setUser={setUser} />} />
+                <Route
+  path="/"
+  element={
+    <Login
+      userName={user} 
+      authState={authState}
+      onAuthChange={(user, authState) => {
+        setAuthState(authState);
+        setUser(user);
+      }}
+    />
+  }
+/>
+ 
     <Route path='/projects' element={<Projects user ={user} />} />
     <Route path='/chat' element={<Chat />} />
     <Route path='/about' element={<About />} />
