@@ -10,6 +10,7 @@ import { Projects } from './projects/projects';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 
+
 export default function App() {
     const [user, setUser] = React.useState(null);
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;

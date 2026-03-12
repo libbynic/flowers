@@ -1,29 +1,74 @@
-export function registerUser(email, password) {
-    console.log(`register user with email: ${email} and password: ${password}`);
+// service.js
 
-    //localStorage.getItem('users');
-    const textStorage = (localStorage.getItem('users') || '[]');
-    const users = JSON.parse(textStorage);
-
-    users.push({ email, password });
-    localStorage.setItem('users', JSON.stringify(users));
-    return {success: true};
+// 1. Register: Sends data to the server to be hashed and saved in the array
+export async function registerUser(email, password) {
+  const response = await fetch('/api/auth/create', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
+  });
+  
+  if (!response.ok) {
+    const body = await response.json();
+    throw new Error(body.msg || 'Failed to create account');
+  }
+  return response.json();
 }
-export function loginUser(email, password) {
-    console.log(`register user with email: ${email} and password: ${password}`);
 
-    //localStorage.getItem('users');
-    const textStorage = (localStorage.getItem('users') || '[]');
-    const users = JSON.parse(textStorage);
+// 2. Login: Verifies credentials against the server's array
+export async function loginUser(email, password) {
+  const response = await fetch('/api/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
+  });
 
-    const foundUser = users.find(u => u.email === email && u.password === password);
-    if (foundUser){
-        return {success: true, user: foundUser};
-    }
-    else {
-        return {success: false, message: "Invalid email or password"};
-    }
+  if (!response.ok) {
+    const body = await response.json();
+    throw new Error(body.msg || 'Invalid login');
+  }
+  return response.json();
 }
+
+// 3. New Function: Checks the cookie on page refresh
+export async function getAuthenticatedUser() {
+  const response = await fetch('/api/user/me');
+  if (response.ok) {
+    return response.json(); // Returns { email: '...' }
+  }
+  return null; // No valid session found
+}
+
+// 4. Logout: Tells the server to clear the cookie
+export async function logoutUser() {
+  await fetch('/api/auth/logout', { method: 'DELETE' });
+}
+// export function registerUser(email, password) {
+//     console.log(`register user with email: ${email} and password: ${password}`);
+
+//     //localStorage.getItem('users');
+//     const textStorage = (localStorage.getItem('users') || '[]');
+//     const users = JSON.parse(textStorage);
+
+//     users.push({ email, password });
+//     localStorage.setItem('users', JSON.stringify(users));
+//     return {success: true};
+// }
+// export function loginUser(email, password) {
+//     console.log(`register user with email: ${email} and password: ${password}`);
+
+//     //localStorage.getItem('users');
+//     const textStorage = (localStorage.getItem('users') || '[]');
+//     const users = JSON.parse(textStorage);
+
+//     const foundUser = users.find(u => u.email === email && u.password === password);
+//     if (foundUser){
+//         return {success: true, user: foundUser};
+//     }
+//     else {
+//         return {success: false, message: "Invalid email or password"};
+//     }
+// }
 //     users.push({ email, password });
 //     localStorage.setItem('users', JSON.stringify(users));
 // }

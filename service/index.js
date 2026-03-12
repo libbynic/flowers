@@ -61,6 +61,24 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
+// --- ADD THIS TO YOUR apiRouter SECTION ---
+
+// Get the currently authenticated user based on their cookie
+apiRouter.get('/user/me', async (req, res) => {
+  // 1. Look for the 'token' cookie in the request
+  const authToken = req.cookies[authCookieName];
+  
+  // 2. Try to find the user in your 'users' array with that token
+  const user = await findUser('token', authToken);
+  
+  if (user) {
+    // 3. If found, send back their email
+    res.send({ email: user.email });
+  } else {
+    // 4. If not found (or no cookie), they aren't logged in
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+});
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
