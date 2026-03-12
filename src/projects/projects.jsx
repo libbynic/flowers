@@ -121,7 +121,8 @@ function updateFlowerStems(arrangementId, flowerId, value) {
   return (
    <main>
             <div className="center-div">
-                <h1>{user ? user.email : 'Guest'}, start New Project!</h1>
+              {/* {user ? user.email : 'Guest'}, */}
+                <h1> Start New Project!</h1>
                 <div className="form-buttons"> 
                     <button type="button" className="btn btn-outline-success" onClick={loadProjects}>View Past Projects</button>
                 </div>
