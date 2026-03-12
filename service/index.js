@@ -72,20 +72,12 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-// GetArrangement
-apiRouter.get('/projects', verifyAuth, (_req, res) => {
-  res.send(projects);
-});
 
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
 });
 
-// Return the application's default page if the path is unknown
-app.use((_req, res) => {
-  res.sendFile('public/index.html', { root: 'flowers' });
-});
 
 
 
@@ -98,7 +90,7 @@ async function createUser(email, password) {
     token: uuid.v4(),
   };
   users.push(user);
-
+  
   return user;
 }
 
@@ -118,9 +110,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
 
 apiRouter.post('/projects', verifyAuth, (req, res) => {
   const project = {
@@ -129,7 +118,7 @@ apiRouter.post('/projects', verifyAuth, (req, res) => {
     arrangements: req.body.arrangements,
     date: new Date()
   };
-
+  
   projects.push(project);
   res.send(project);
 });
@@ -142,4 +131,49 @@ app.post('/api/projects', (req, res) => {
 
 app.get('/api/projects', (req, res) => {
   res.send(projects);
+});
+
+app.get('/api/picture', async (req, res) => {
+  const API_KEY = '55003532-9a2218b4c030503caeb531032'; 
+  
+  // Lowering this to 10 makes it much less likely to hit an "out of range" error
+  const randomPage = Math.floor(Math.random() * 10) + 1;
+  
+  const url = `https://pixabay.com/api/?key=${API_KEY}&q=flowers+bouquets&image_type=photo&page=${randomPage}`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      // If the random page failed, let's try one more time with Page 1
+      if (response.status === 400) {
+        console.warn("Page out of range, falling back to page 1");
+        const fallbackRes = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=flowers&page=1`);
+        const fallbackData = await fallbackRes.json();
+        return res.send({ url: fallbackData.hits[0].webformatURL });
+      }
+      return res.status(response.status).send({ error: errorBody });
+    }
+
+    const data = await response.json();
+
+    if (data.hits && data.hits.length > 0) {
+      const randomIndex = Math.floor(Math.random() * data.hits.length);
+      res.send({ url: data.hits[randomIndex].webformatURL });
+    } else {
+      res.status(404).send({ msg: "No images found" });
+    }
+  } catch (error) {
+    console.error("Fetch Error:", error.message);
+    res.status(500).send({ msg: "Internal server error" });
+  }
+});
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });

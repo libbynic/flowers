@@ -35,10 +35,17 @@ const imgFiles = [
     "lightBlue.jpg",
     "QuickSandRoses.jpg"
 ];
-export function getPicture(){
-    const randomIndex = Math.floor(Math.random() *imgFiles.length);
-    return imgFiles[randomIndex];
 
+
+export async function getPicture() {
+  const response = await fetch('/api/picture');
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch image from server');
+  }
+
+  const data = await response.json(); 
+  // This 'data' is the { url: "..." } object your backend sends
+  return data.url; 
 }
-
 
