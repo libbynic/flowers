@@ -30,14 +30,7 @@ export async function loginUser(email, password) {
   return response.json();
 }
 
-// 3. New Function: Checks the cookie on page refresh
-export async function getAuthenticatedUser() {
-  const response = await fetch('/api/user/me');
-  if (response.ok) {
-    return response.json(); // Returns { email: '...' }
-  }
-  return null; // No valid session found
-}
+
 
 // 4. Logout: Tells the server to clear the cookie
 export async function logoutUser() {

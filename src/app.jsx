@@ -12,7 +12,7 @@ import { AuthState } from './login/authState';
 
 
 export default function App() {
-    const [user, setUser] = React.useState(null);
+    const [user, setUser] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
     return(
