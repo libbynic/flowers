@@ -11,10 +11,19 @@ import { About } from './about/about';
 import { AuthState } from './login/authState';
 
 
+
 export default function App() {
     const [user, setUser] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
+    
+    function logoutUser() {
+      fetch('/api/auth/logout', { method: 'DELETE' })
+        .finally(() => {
+          setUser(null);
+          setAuthState(AuthState.Unauthenticated);
+        });
+    }
     return(
 
         <BrowserRouter>
@@ -36,7 +45,7 @@ export default function App() {
                 <ul> <NavLink className="btn btn-outline-success" to="chat"> Chat </NavLink> </ul>
                 )}
                 <ul> <NavLink className="btn btn-outline-success" to="about"> About </NavLink> </ul>
-                <ul> <NavLink className="btn btn-outline-success" onClick={() => logout()} to=""> Logout </NavLink ></ul>
+                <ul> <button className="btn btn-outline-success" onClick={() => logoutUser()}> Logout </button></ul>
                 
             </div>
         </div>
