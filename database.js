@@ -32,6 +32,10 @@ async function addUser(user) {
   await usersCollection.insertOne(user);
 }
 
+async function updateUser(user) {
+  await userCollection.updateOne({ email: user.email }, { $set: user });
+}
+
 
 async function main() {
   
@@ -48,8 +52,5 @@ module.exports = {
   getUserByToken,
   addUser,
   updateUser,
-  updateUserRemoveAuth,
-  addScore,
-  getHighScores,
 };
 main();
