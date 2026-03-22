@@ -8,8 +8,6 @@ const DB = require('./database.js')
 const authCookieName = 'token';
 
 // The projects and users are saved in memory and disappear whenever the service is restarted.
-let users = [];
-let projects = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -126,27 +124,27 @@ function setAuthCookie(res, authToken) {
 }
 
 
-apiRouter.post('/projects', verifyAuth, (req, res) => {
+apiRouter.post('/projects', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
   const project = {
     id: uuid.v4(),
-    user: req.cookies[authCookieName],
+    userEmail: user.email,
     arrangements: req.body.arrangements,
     date: new Date()
   };
   
-  projects.push(project);
+  await DB.addArrangement(project);
   res.send(project);
 });
 
-app.post('/api/projects', (req, res) => {
-  const project = req.body;
-  projects.push(project);
-  res.send({ success: true });
-});
+apiRouter.get('/projects', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
 
-app.get('/api/projects', (req, res) => {
+  const projects = await DB.getArrangementsByUser(user.email);
+
   res.send(projects);
 });
+
 
 app.get('/api/picture', async (req, res) => {
   const API_KEY = '55003532-9a2218b4c030503caeb531032'; 
@@ -155,10 +153,10 @@ app.get('/api/picture', async (req, res) => {
   const randomPage = Math.floor(Math.random() * 10) + 1;
   
   const url = `https://pixabay.com/api/?key=${API_KEY}&q=flowers+bouquets&image_type=photo&page=${randomPage}`;
-
+  
   try {
     const response = await fetch(url);
-
+    
     if (!response.ok) {
       const errorBody = await response.text();
       // If the random page failed, let's try one more time with Page 1
@@ -170,9 +168,9 @@ app.get('/api/picture', async (req, res) => {
       }
       return res.status(response.status).send({ error: errorBody });
     }
-
+    
     const data = await response.json();
-
+    
     if (data.hits && data.hits.length > 0) {
       const randomIndex = Math.floor(Math.random() * data.hits.length);
       res.send({ url: data.hits[randomIndex].webformatURL });
@@ -192,3 +190,14 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+
+  // app.post('/api/projects', (req, res) => {
+  //   const project = req.body;
+  //   projects.push(project);
+  //   res.send({ success: true });
+  // });
+  
+  // app.get('/api/projects', (req, res) => {
+  //   res.send(projects);
+  // });

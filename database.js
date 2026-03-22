@@ -11,6 +11,7 @@ const arrangeCollection = db.collection('arrange');
 
 (async function testConnection() {
   try {
+    await client.connect();
     await db.command({ ping: 1 });
     console.log(`Connect to database`);
   } catch (ex) {
@@ -25,7 +26,7 @@ function getUser(email) {
 }
 
 function getUserByToken(token) {
-  return userCollection.findOne({ token: token });
+  return usersCollection.findOne({ token: token });
 }
 
 async function addUser(user) {
@@ -33,24 +34,23 @@ async function addUser(user) {
 }
 
 async function updateUser(user) {
-  await userCollection.updateOne({ email: user.email }, { $set: user });
+  await usersCollection.updateOne({ email: user.email }, { $set: user });
 }
 
-
-async function main() {
-  
-  try {
-    // add all the following database code here
-  
-  } finally {
-    client.close();
-  }
+async function addArrangement(arrangement) {
+  await arrangeCollection.insertOne(arrangement);
 }
+
+function getArrangementsByUser(email) {
+  return arrangeCollection.find({userEmail: email }).toArray();
+}
+
 
 module.exports = {
   getUser,
   getUserByToken,
   addUser,
   updateUser,
+  addArrangement,
+  getArrangementsByUser
 };
-main();
