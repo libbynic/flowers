@@ -26,14 +26,33 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
+// apiRouter.post('/auth/create', async (req, res) => {
+//   if (await findUser('email', req.body.email)) {
+//     res.status(409).send({ msg: 'Existing user' });
+//   } else {
+//     const user = await createUser(req.body.email, req.body.password);
+
+//     setAuthCookie(res, user.token);
+//     res.send({ email: user.email });
+//   }
+// });
+
 apiRouter.post('/auth/create', async (req, res) => {
-  if (await findUser('email', req.body.email)) {
-    res.status(409).send({ msg: 'Existing user' });
-  } else {
+  try {
+    console.log("Creating user:", req.body);
+
+    if (await findUser('email', req.body.email)) {
+      return res.status(409).send({ msg: 'Existing user' });
+    }
+
     const user = await createUser(req.body.email, req.body.password);
 
     setAuthCookie(res, user.token);
     res.send({ email: user.email });
+
+  } catch (err) {
+    console.error("ERROR IN CREATE:", err);
+    res.status(500).send({ msg: "Error creating user" });
   }
 });
 

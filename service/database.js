@@ -4,7 +4,7 @@ const config = require('./dbConfig.json');
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 
 const client = new MongoClient(url);
-const db = client.db('flowers');
+const db = client.db('Flowers');
 const usersCollection = db.collection('users');
 const arrangeCollection = db.collection('arrange');
 
@@ -45,6 +45,10 @@ function getArrangementsByUser(email) {
   return arrangeCollection.find({userEmail: email }).toArray();
 }
 
+async function updateUserRemoveAuth(user) {
+  await usersCollection.updateOne({ email: user.email }, { $unset: { token: 1 } });
+}
+
 
 module.exports = {
   getUser,
@@ -52,5 +56,6 @@ module.exports = {
   addUser,
   updateUser,
   addArrangement,
-  getArrangementsByUser
+  getArrangementsByUser,
+  updateUserRemoveAuth
 };
